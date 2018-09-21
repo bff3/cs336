@@ -1,0 +1,8 @@
+a.
+express is the framework for running a server which executes node.js code
+b.
+defines the js file express should look for, as well as,
+metadata of the application, such as: author, git repository, and version number.
+
+3.2)
+a)

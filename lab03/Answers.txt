@@ -1,0 +1,12 @@
+a.
+express is the framework for running a server which executes node.js code
+b.
+defines the js file express should look for, as well as,
+metadata of the application, such as: author, git repository, and version number.
+
+3.2)
+a)
+  no JavaScript is running on the client to modify these pages
+b)
+  the server still serves the hello world message because the request
+  to access the root '/' virtual path is still set to send Hello World
