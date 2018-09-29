@@ -63,12 +63,12 @@ ol {
   list-style-type: lower-roman;
 }
 
-#lists{
+div.lists{
   display: inline-table;
   padding: 1em;
 }
 
-#lists > div.blu {
+div.lists div.blu {
   border: 1em solid #ADF;
 }
 
