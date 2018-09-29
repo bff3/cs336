@@ -1,0 +1,6 @@
+4.2)
+errors included improper encoding... not sure what's going wrong here,
+my text editor is set to utf-8, maybe it's the server I'm running it on (thttpd)
+only other error was a div inside a span.
+css checker was down when I tried to use it.
+It's over it's serving quota.
