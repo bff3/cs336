@@ -1,0 +1,72 @@
+borderline = 1px solid black
+purp = #ccccff
+flex_side = 1 6 20% //aside and nav flex params
+pad = 0.5em
+
+body
+	 font 1.25em Helvetica
+	 background #999999
+
+//article takes up the main portion of the screen
+//nav and aside take up the sides
+#main
+	min-height 800px
+	display flex
+	flex-flow row
+
+	article
+		 padding pad
+		 border-left borderline
+		 border-right borderline
+		 background #dddd88
+		 flex 3 1 60%
+		 order 2
+
+	nav
+		 padding pad
+		 border-left borderline
+		 background purp
+		 flex flex_side
+		 order 1
+		 text-align right
+
+		 ul
+			 list-style none
+	aside
+		 padding pad
+		 border-right borderline
+		 background purp
+		 flex flex_side
+		 order 3
+		 font-style italic
+
+//header and footer cap the top and bottom
+header, footer
+	 display block
+	 min-height 1em
+	 padding 1em
+	 border borderline
+	 background #ffeebb
+
+	header
+		font-size 1.5em
+
+	footer
+		 font-size 0.75em
+
+//Too narrow to support three columns
+@media all and (max-width 640px)
+	#main, #page
+		 flex-direction column
+		nav
+			text-align left
+			order 0
+		article
+			order 1
+			border borderline
+		aside
+			order 2
+		nav, aside, header, footer
+			min-height 50px
+			border-left borderline
+			border-right borderline

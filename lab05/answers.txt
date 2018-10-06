@@ -1,0 +1,21 @@
+5.1)
+a)
+responsive design is about designing websites to look
+good and be functional on a variety of devices with
+varying screen sizes.
+b)
+HTML tables are unresponsive and don't share metadata
+with web crawlers;
+Bootstrap and Foundation contain a lot of templates for
+designing website front-ends. Flexbox is just one styling
+element.
+
+5.2)
+a)
+no, because you are doing the stylus processing manually to get a css file,
+which a browser is perfectly capable of handling.
+b)
+yes, it make css more readable for teams to work on a website, reduces file overhead.
+c)
+--compress gets rid of whitespace to reduce filesize which improves website load time.
+--watch checks if the file has changes and recompiles.
