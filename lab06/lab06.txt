@@ -1,0 +1,17 @@
+a)
+curl can be used for all of these requests
+curl -X GET localhost:3000/request/
+curl -X POST localhost:3000/request -d '{"Hello": "World","foo": "bar"}' -H 'Content-Type: application/json'
+curl -X PUT localhost:3000/request -d '{"Hello": "World","foo": "bar"}' -H 'Content-Type: application/json'
+curl -X DELETE localhost:3000/request/loginID
+curl -I localhost:3000/request
+
+b)
+404 not found
+
+6.2
+a)
+GET POST
+b)
+passed back to the server with a POST request. The data is stored in the user_message
+the body is parsed by body-parser to make the user_message into a JSON object.
