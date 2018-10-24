@@ -1,0 +1,23 @@
+a)
+  i) The UI uses props to inherit properties from a parent ui element to the
+  children elements.
+  ii) JSX is a preprocessor lets you write in XML syntax to generate JavaScript
+  iii)
+  ReactJs automatically escapes strings so you can't inject markup
+  iv)
+  The data is passed with this.state.data
+  The data is loaded into the state through an ajax request every 2 seconds
+  v)
+  props are immutable. State is mutable. For example, when a comment is created,
+  the Author and message are immutable props, the comment list is recreated with
+  an immutable props, and the comments are passed into the state to be sent to
+  the loadCommentsFromServer
+b)
+  i) it's reflected on the web app, because the ajax is updating the CommentList
+  every 2 seconds.
+  ii) because it passes them into comment list which usses the commetn class to
+  render each comment.
+  iii) You don't have the case where the components represent an invalid or
+  inaccurate state.
+  iv) it doesn't handle if the comment is rejected, so doesn't remove the comment
+  if it's rejected.
