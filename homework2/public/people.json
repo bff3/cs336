@@ -2,61 +2,13 @@
     {
         "first_name": "Ben",
         "last_name": "Fynan",
-        "loginID": "1133",
+        "loginID": "6969",
         "startDate": "1996/12/29"
     },
     {
-        "first_name": "Rob",
+        "first_name": "Bill",
         "last_name": "Kappa",
-        "loginID": "6969",
-        "startDate": "1997/05/19"
-    },
-    {
-        "first_name": "Eric",
-        "last_name": "Idle",
-        "loginID": "1337",
-        "startDate": "1945/12/25"
-    },
-    {
-        "first_name": "dsdf",
-        "last_name": "sadf",
-        "loginID": "5434",
-        "startDate": "12/26/3445"
-    },
-    {
-        "first_name": "dsdf",
-        "last_name": "sadf",
-        "loginID": "5434",
-        "startDate": "12/26/3445"
-    },
-    {
-        "first_name": "dsdf",
-        "last_name": "sadf",
-        "loginID": "5434",
-        "startDate": "12/26/3445"
-    },
-    {
-        "first_name": "beg",
-        "last_name": "feg",
-        "loginID": "he;",
-        "startDate": "edr"
-    },
-    {
-        "first_name": "dave",
-        "last_name": "barry",
-        "loginID": "80085",
-        "startDate": "23/34/1256"
-    },
-    {
-        "first_name": "dsdf",
-        "last_name": "rhy",
-        "loginID": "5434",
-        "startDate": "12/26/3445"
-    },
-    {
-        "first_name": "buts",
-        "last_name": "ny",
-        "loginID": "5434",
-        "startDate": "12/26/3445"
+        "loginID": "1133",
+        "startDate": "1997/11/22"
     }
 ]

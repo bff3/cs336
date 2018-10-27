@@ -72,71 +72,82 @@ function pSearch(people, id){
   return 'NAP';
 }
 
-
-//regex for filtering out id number
-var getid = /[^\/people\/]\d*/;
-
 //for /people/id requests
-app.get(/\/person\/\d*$/, function(req, res){
-  let id = getid.exec(req.url);
-  let person = pSearch(people, id);
-  if (person == 'NAP') {
-    res.sendStatus(404);
-  } else {
-    res.json(person);
-  }
+app.get('/api/:id', function(req, res){
+  var id = req.params.id;
+  fs.readFile(PEOPLE_FILE, function(err, data) {
+    if (err) {
+        console.error(err);
+        process.exit(1);
+    }
+    var people = JSON.parse(data);
+    let person = pSearch(people, id);
+    if (person == 'NAP') {
+      res.sendStatus(404);
+    } else {
+      res.json(person);
+    }
+  });
+});
+
+app.get('/person/:id', function(req, res){
+  var id = req.params.id;
+  fs.readFile(PEOPLE_FILE, function(err, data) {
+    if (err) {
+        console.error(err);
+        process.exit(1);
+    }
+    var people = JSON.parse(data);
+    let person = pSearch(people, id);
+    if (person == 'NAP') {
+      res.sendStatus(404);
+    } else {
+      res.sendFile(path.join(__dirname, 'public/getPerson.html'));
+    }
+  });
 });
 
 //for /people/id/name
-app.get(/\/person\/\d*\/name/, function(req, res){
-  let id = getid.exec(req.url);
-  let person = pSearch(people, id);
-  if (person == 'NAP') {
-    res.sendStatus(404);
-  } else {
-    res.send(person.fullname());
-  }
+app.get('/person/:id/name', function(req, res){
+  var id = req.params.id;
+  fs.readFile(PEOPLE_FILE, function(err, data) {
+    if (err) {
+        console.error(err);
+        process.exit(1);
+    }
+    var people = JSON.parse(data);
+    var person = pSearch(people, id);
+    if (person == 'NAP') {
+      res.sendStatus(404);
+    } else {
+      res.send(person.first_name + " " + person.last_name);
+    }
+  });
 });
 
 //for /people/id/year
-app.get(/\/person\/\d*\/years/, function(req, res){
-  let id = getid.exec(req.url);
-  let person = pSearch(people, id);
-  if (person == 'NAP') {
-    res.sendStatus(404);
-  } else {
-    res.send(person.seniority().toString());
-  }
+app.get('/person/:id/years', function(req, res){
+  var id = req.params.id;
+  fs.readFile(PEOPLE_FILE, function(err, data) {
+    if (err) {
+        console.error(err);
+        process.exit(1);
+    }
+    var people = JSON.parse(data);
+    var person = pSearch(people, id);
+    var dude = new Person(person.first_name, person.last_name, person.loginID, person.startDate);
+    if (person == 'NAP') {
+      res.sendStatus(404);
+    } else {
+      res.send(dude.seniority().toString());
+    }
+  });
 });
 
 //any other path gets a 404
 app.get('*', function(req, res) {
     res.sendStatus(404);
 });
-
-/*
-// Additional middleware which will set headers that we need on each request.
-app.use(function(req, res, next) {
-    // Set permissive CORS header - this allows this server to be used only as
-    // an API server in conjunction with something like webpack-dev-server.
-    res.setHeader('Access-Control-Allow-Origin', '*');
-
-    // Disable caching so we'll always get the latest comments.
-    res.setHeader('Cache-Control', 'no-cache');
-    next();
-});
-
-app.get('/api/comments', function(req, res) {
-    fs.readFile(COMMENTS_FILE, function(err, data) {
-        if (err) {
-            console.error(err);
-            process.exit(1);
-        }
-        res.json(JSON.parse(data));
-    });
-});
-
-*/
 
 app.listen(app.get('port'), function() {
     console.log('Server started: http://localhost:' + app.get('port') + '/');

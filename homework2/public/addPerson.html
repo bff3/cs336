@@ -14,16 +14,18 @@
     <body>
         <div id="content"></div>
         <script type="text/babel" src="addScript.js"></script>
-        <button id="getppl">Get People</button>
-        <div id="ppl"></div>
         <script>
-          $("button#getppl").click(function(){
-            $.getJSON("people.json", function(result){
-                $.each(result, function(i, field){
-                    $("div#ppl").append(JSON.stringify(field) + " ");
-                });
+          $.getJSON( "api/people", function( data ) {
+            var items = [];
+            $.each( data, function( key, val ) {
+              items.push( "<li id='" + JSON.stringify(key) + "'>" + JSON.stringify(val) + "</li>" );
             });
-          });
+
+            $( "<ul/>", {
+              "class": "my-new-list",
+              html: items.join( "" )
+            }).appendTo( "body" );
+            });
         </script>
     </body>
 </html>

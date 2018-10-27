@@ -1,16 +1,28 @@
 class NameForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      firstName: '',
-      lastName: '',
-      id: '',
-      startDate: ''
-    };
+    this.state = {};
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
+    this.getPerson = this.getPerson.bind(this);
+    {this.getPerson()}
   }
 
+  getPerson(event) {
+    $.ajax({
+      url: '/api/6969',
+      dataType: 'json',
+      cache: false,
+      success: function(data) {
+        console.log('ajax request success..');
+        this.setState({data});
+      }.bind(this),
+      error: function(xhr, status, err) {
+        console.error(this.props.url, status, err.toString());
+      }.bind(this)
+    });
+    console.log(JSON.stringify(this.state));
+  }
   handleInputChange(event) {
     const target = event.target;
     const value = target.value;
@@ -22,14 +34,13 @@ class NameForm extends React.Component {
   }
 
   handleSubmit(event) {
-    alert('You are trying to submit: ' + JSON.stringify(this.state));
       $.ajax({
         url: '/people',
         dataType: 'json',
         type: 'POST',
         data: this.state,
-        success: function(data) {
-          alert('You submitted: ' + JSON.stringify(data));
+        success: function() {
+          console.log('ajax POST sucessful...');
         },
         error: function(xhr, status, err) {
           console.error(this.props.url, status, err.toString());
@@ -77,13 +88,13 @@ class NameForm extends React.Component {
             onChange={this.handleInputChange} />
         </label>
         <br />
-        <input type="submit" value="Submit" />
+        <input type="submit" value="Modify" />
       </form>
     );
   }
 }
 
 ReactDOM.render(
-<NameForm url="/people/id" />,
+<NameForm />,
 document.getElementById('content')
 );

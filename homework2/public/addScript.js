@@ -22,14 +22,13 @@ class NameForm extends React.Component {
   }
 
   handleSubmit(event) {
-    alert('You are trying to submit: ' + JSON.stringify(this.state));
       $.ajax({
         url: '/people',
         dataType: 'json',
         type: 'POST',
         data: this.state,
-        success: function(data) {
-          alert('You submitted: ' + JSON.stringify(data));
+        success: function() {
+          console.log('ajax POST sucessful...');
         },
         error: function(xhr, status, err) {
           console.error(this.props.url, status, err.toString());
@@ -84,6 +83,6 @@ class NameForm extends React.Component {
 }
 
 ReactDOM.render(
-<NameForm url="/people" />,
+<NameForm />,
 document.getElementById('content')
 );
