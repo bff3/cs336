@@ -1,2 +1,8 @@
 9.1
-a) it puts the lib
+a) 243B. It puts the libraries used into one file to control the
+version
+b) precompiles more modern JS into older, more compatible JS
+c) No, because the express server is serving up the comments
+d)searches for files with .jsx? in them to run through the compiler
+
+9.2
