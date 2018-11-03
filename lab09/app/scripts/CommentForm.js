@@ -1,7 +1,4 @@
-//import $ from 'jquery';
 import React from 'react';
-//import ReactDOM from 'react-dom';
-//import Remarkable from 'remarkable';
 
 module.exports = React.createClass({
   getInitialState: function() {

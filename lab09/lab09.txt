@@ -6,3 +6,21 @@ c) No, because the express server is serving up the comments
 d)searches for files with .jsx? in them to run through the compiler
 
 9.2
+a)
+index.html now has a script tag where the template does not. bundle.js
+now has a bunch of __webpack_require__() statements with my modules in them.
+bundle.js is now 1.26MB
+b)
+Control the version of libraries you use.
+Don't rely on third party to serve your libraries.
+c)
+just bundle.js and index.html are being served
+
+9.3
+There is an info and websocket request not on the 3000 server.
+the webpack dev server auto-reloads when a change is made to the scripts.
+api/comments return a json formatted list of comments.
+the SPA on port 3000 does not automatically change when the modules are edited,
+only the comments.json.
+b)
+I'd say so, save a little time building the bundle and reloading the page.

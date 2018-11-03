@@ -1,10 +1,7 @@
-import $ from 'jquery';
 import React from 'react';
-import ReactDOM from 'react-dom';
-import Remarkable from 'remarkable';
 import Comment from './Comment.js';
 
-var CommentList = React.createClass({
+module.exports = React.createClass({
   render: function() {
     var commentNodes = this.props.data.map(function(comment) {
       return (
