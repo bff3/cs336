@@ -1,0 +1,15 @@
+10.1
+a)NoSQL is more flexible in how the data is structured. SQL databases use SQL.
+b)It would reduce the latency to retrieve comments.
+It would be more secure since the request and response would stay local.
+If you were storing a lot of data the price comparison between cloud services
+ and local storage may change.
+c) limited storage and bandwith, no backups
+10.2
+a)npm start, because the only modifications are being made to the server.js
+not the app code.
+b)
+It is reflected in the SPA much like when I edited the comments.json file.
+c)
+noSQL is probably the best since the comments are a collection of json objects.
+SQL could probably be made to work though.
