@@ -1,1 +1,22 @@
 https://bff3-lab11.herokuapp.com/
+
+11.1
+a)
+The development environment has a webpack dev server
+which builds the app and restarts the nodejs server.
+The production environment uses webpack to bundle resources
+together into one js file, where the dev env can rely on source code.
+The production env is running on hiroku which makes it more
+accessible to the world instead of just localhost.
+b)
+babel white space compression and uglification
+(found with the debugger.)
+Only one js file
+
+11.2
+a)
+It simplifies production setup. You don't have to configure your own
+physical server.
+b)
+either specify it when you create a hiroku instance or in
+the procfile
