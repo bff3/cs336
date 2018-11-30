@@ -1,0 +1,20 @@
+https://lab13-bff3.herokuapp.com/
+
+13.1)
+a)
+Reduces the number of request going out to the server, while maintaining the
+use of url as an indicator of state
+b)
+browser history because it has cleaner urls. Hash history is more backwards
+compatible.
+c)
+Because the server has to use the whole url instead of just the url after the # mark
+
+13.2)
+a)
+commentEdit maintains one author and text in the component's state
+commentBox maintains a list of comments and whether it is mounted
+b)
+update and delete push / to the react context where the cancel Links the user back to /
+c)
+no request is sent to the server
