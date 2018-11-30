@@ -55,6 +55,26 @@ app.post('/api/comments', function(req, res) {
       })
 });
 
+app.delete('/:id', function(req, res) {
+  db.collection('comments').deleteOne({loginID: req.params.id}).toArray(function (err, result) {
+    if (err) throw err
+      res.json(result[0]);
+  });
+});
+
+/*
+app.put('/:id', function(req, res) {
+  db.collection('homework3').updateOne(
+    {loginID: req.params.id},
+    {
+      "first_name": req.body.firstName,
+      "last_name": req.body.lastName,
+      "loginID": req.body.id,
+      "startDate": req.body.startDate
+    }
+  );
+});
+*/
 app.use('*', express.static(APP_PATH));
 
 app.listen(app.get('port'), function() {
