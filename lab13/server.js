@@ -55,26 +55,33 @@ app.post('/api/comments', function(req, res) {
       })
 });
 
-app.delete('/:id', function(req, res) {
-  db.collection('comments').deleteOne({loginID: req.params.id}).toArray(function (err, result) {
-    if (err) throw err
-      res.json(result[0]);
-  });
+app.put('/api/comments/:id', function(req, res) {
+    var updateId = Number(req.params.id);
+    var update = req.body;
+    db.collection('comments').updateOne(
+        { id: updateId },
+        { $set: update },
+        function(err, result) {
+            if (err) throw err;
+            db.collection("comments").find({}).toArray(function(err, docs) {
+                if (err) throw err;
+                res.json(docs);
+            });
+        });
 });
 
-/*
-app.put('/:id', function(req, res) {
-  db.collection('homework3').updateOne(
-    {loginID: req.params.id},
-    {
-      "first_name": req.body.firstName,
-      "last_name": req.body.lastName,
-      "loginID": req.body.id,
-      "startDate": req.body.startDate
-    }
-  );
+app.delete('/api/comments/:id', function(req, res) {
+    db.collection("comments").deleteOne(
+        {'id': Number(req.params.id)},
+        function(err, result) {
+            if (err) throw err;
+            db.collection("comments").find({}).toArray(function(err, docs) {
+                if (err) throw err;
+                res.json(docs);
+            });
+        });
 });
-*/
+
 app.use('*', express.static(APP_PATH));
 
 app.listen(app.get('port'), function() {
