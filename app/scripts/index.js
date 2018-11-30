@@ -7,9 +7,10 @@ import CommentEdit from './commentEdit';
 
 import '../css/base.css';
 
-ReactDOM.render(
+ReactDOM.render((
         <Router history={browserHistory}>
             <Route path="/" component={CommentBox}/>
             <Route path="/:id" component={CommentEdit}/>
-        </Router>, document.getElementById('content')
+        </Router>
+    ), document.getElementById('content')
 );
